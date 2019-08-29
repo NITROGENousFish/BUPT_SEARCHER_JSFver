@@ -44,7 +44,7 @@ public class User {
         int result = 0;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=CONVERT_TO_NULL","root","Nieping5868");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=CONVERT_TO_NULL","root","Nieping5868");
             PreparedStatement stmt = con.prepareStatement("insert into user(name,email) values(?,?)");
             String sql = "insert into user(name,email)" + " values ('111', '111')"; // 插入数据的sql语句 
             Statement stmt1 =con.createStatement();  // 创建用于执行静态sql语句的Statement对象 
