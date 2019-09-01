@@ -1,6 +1,26 @@
 # 小学期一起爬
  小学期一起爬，爬，爬
+
 ----
+
+## sticker-story: Creating HTML5 Pages in Jaavserver Faces 2.2 
+Official tutorial: https://www.oracle.com/webfolder/technetwork/tutorials/obe/java/HTML5-JSF/html5jsf.html
+
+stickers-1.html
+
+![Image text](./READMEImg/slider-1.gif)
+stickers-2.xhtml
+
+![Image text](./READMEImg/slider-2.gif)
+stickers-3.xhtml
+
+![Image text](./READMEImg/slider-3.gif)
+stickers-4.xhtml
+
+![Image text](./READMEImg/slider-4.gif)
+
+----
+
 ## JdbcConnectivity
 JdbcConnectivity教程: https://www.yiibai.com/jsf/jdbc-connectivity.html
 <br>
