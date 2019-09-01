@@ -17,6 +17,7 @@ stickers-3.xhtml
 
 ![Image text](./READMEImg/slider-4.gif)
 stickers-4.xhtml
+
 ----
 
 ## JdbcConnectivity
