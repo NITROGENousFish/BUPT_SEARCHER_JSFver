@@ -6,19 +6,17 @@
 ## sticker-story: Creating HTML5 Pages in Jaavserver Faces 2.2 
 Official tutorial: https://www.oracle.com/webfolder/technetwork/tutorials/obe/java/HTML5-JSF/html5jsf.html
 
+![Image text](./READMEImg/slider-1.gif)
 stickers-1.html
 
-![Image text](./READMEImg/slider-1.gif)
+![Image text](./READMEImg/slider-2.gif)
 stickers-2.xhtml
 
-![Image text](./READMEImg/slider-2.gif)
+![Image text](./READMEImg/slider-3.gif)
 stickers-3.xhtml
 
-![Image text](./READMEImg/slider-3.gif)
-stickers-4.xhtml
-
 ![Image text](./READMEImg/slider-4.gif)
-
+stickers-4.xhtml
 ----
 
 ## JdbcConnectivity
