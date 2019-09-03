@@ -109,3 +109,13 @@ var slideDivX = function(div, dis, time){
     };
     setTimeout(step, 10);
 };
+
+function adjustLoginPosition(){
+	width = document.documentElement.clientWidth;
+	header = document.getElementById("login");
+	if(width<=1100){
+		header.style.left=1000+'px';
+	}
+	else header.style.left = (width - 100)+'px';
+	setTimeout(adjustLoginPosition, 100);
+}
