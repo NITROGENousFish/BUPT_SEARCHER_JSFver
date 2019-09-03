@@ -29,6 +29,35 @@ a{
     padding: 0 15px 0 15px;
     border-right: 1px solid gray;
 }
+#login{
+    display: inline-block;
+    padding: 0 0 0 15px;
+    position: relative;
+    vertical-align: middle;
+    height: 40px;
+    position: absolute;
+    top: 2px;
+}
+#loginitem{
+    position: relative;
+    line-height: normal;
+    text-align: left;
+    height: 40px;
+}
+#loginitem a{
+    color: #fff;
+    border: 1px solid #4285f4;
+    font-weight: bold;
+    outline: none;
+    background: #4285f4;
+    line-height: 28px;
+    padding: 0 12px;
+    border-radius: 2px;
+    font-size: 13px;
+    display: block;
+    width: 28px;
+    height: 30px;
+}
 .menuitem a{
     font-size: 15px;
     font-weight: normal;
