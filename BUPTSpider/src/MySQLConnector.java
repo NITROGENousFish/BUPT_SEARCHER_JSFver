@@ -1,4 +1,4 @@
-import java.sql.*
+import java.sql.*;
 
 public class MySQLConnector {
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
@@ -14,11 +14,13 @@ public class MySQLConnector {
     public MySQLConnector(){
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            this.conn = DriverManager.getConnection(DB_URL, USER, PASS);
+            this.conn = DriverManager.getConnection(DB_URL,USER,PASS);
+            this.stmt = this.conn.createStatement();
+            String veri_sql = "SHOW TABLES;";
 
             DatabaseMetaData meta = conn.getMetaData();
             String type [] = {"TABLE"};
-            ResultSet rs = meta.getTables(null, null, table_name, type);
+            ResultSet rs = meta.getTables(null, null, "websites_info", type);
             boolean flag = rs.next();
             if(!flag){
                 String init_sql = "CREATE TABLE `" + this.table_name + "` (\n" +
@@ -59,7 +61,7 @@ public class MySQLConnector {
 
     public String getUnCrawled(){
         try{
-            String select_sql = "SELECT `url` FROM `%s` WHERE crawled = 0 AND being_crawled = 0 AND url != '' LIMIT 1";
+            String select_sql = "SELECT `url` FROM `%s` WHERE `crawled` = 0 AND `being_crawled` = 0 AND `url` != '' LIMIT 1";
             select_sql = String.format(select_sql, this.table_name);
             PreparedStatement stmt = this.conn.prepareStatement(select_sql);
             ResultSet rs = stmt.executeQuery();
@@ -80,5 +82,28 @@ public class MySQLConnector {
         }
     }
 
-    
+    public void isCrawled(String url, String title, String content, String published_time){
+        try{
+            String update_sql = "UPDATE `%s` SET `crawled` = 1, `being_crawled` = 0, `title` = ?, `content` = ?, published_time = ? WHERE `url` = ?";
+            update_sql = String.format(update_sql, this.table_name);
+            PreparedStatement stmt = this.conn.prepareStatement(update_sql);
+            stmt.setString(1, title);
+            stmt.setString(2, content);
+            stmt.setString(3, published_time);
+            stmt.setString(4, url);
+            stmt.executeUpdate();
+        }catch (SQLException se){
+            se.printStackTrace();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args){
+        MySQLConnector mySQLConnector = new MySQLConnector();
+        mySQLConnector.addUrl("https://www.bupt.edu.cn/");
+        String url = mySQLConnector.getUnCrawled();
+        System.out.println(url);
+        mySQLConnector.isCrawled("https://www.bupt.edu.cn/", "rua", "ruaaaa", "1000-01-01");
+    }
 }
