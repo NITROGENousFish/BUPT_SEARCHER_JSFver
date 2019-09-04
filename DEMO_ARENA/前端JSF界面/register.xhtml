@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:jsf="http://xmlns.jcp.org/jsf" xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:p="http://xmlns.jcp.org/jsf/passthrough" xmlns:f="http://java.sun.com/jsf/core">
+
+<head jsf:id="head">
+    <meta charset="utf-8"/>
+    <title>注册</title>
+    <link jsf:name="style/login.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body jsf:id="body">
+    <div id="loginbox-out" class="center">
+        <div id="loginbox-in" class="center">
+            <h2>注册</h2>
+
+            <form action="#">
+                <div class="container">
+                    <label><b>用户名</b></label>
+                    <h:inputText value="#{user.username}" required="true" requiredMessage="请填写用户名" />
+
+                    <label><b>邮箱</b></label>
+                    <h:inputText value="#{user.email}" required="true" requiredMessage="请填写邮箱" />
+
+                    <label><b>密码</b></label>
+                    <h:inputText value="#{user.passwd}" required="true" requiredMessage="请输入密码" />
+
+                    <label><b>性别</b></label>
+                    
+                    <h:selectOneRadio value="#{user.sex}">
+                        <f:selectItem itemValue="male" itemLabel="Male" />
+                        <f:selectItem itemValue="female" itemLabel="Female" />
+                        <f:selectItem itemValue="secret" itemLabel="Secret" />
+                    </h:selectOneRadio>
+
+                    <button type="submit">注册</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>

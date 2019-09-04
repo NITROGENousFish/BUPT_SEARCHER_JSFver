@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+
+<head jsf:id="head"> 
+    <meta charset="utf-8" />
+    <link jsf:name="style/searcher.css" rel="stylesheet" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>北邮 BUPT 搜索引擎</title>
+</head>
+
+<body jsf:id="body"> 
+    <div id="new-header">
+        <a href="http://lastation.me/searcher" id="index">
+            <h:graphicImage id="submit" url="/resources/images/logo.png" />
+        </a>
+        <div id="searchbox-out">
+            <div id="searchbox-in">
+                <form action="searcher.php" method="get" id="searchboxForm" target="_self">
+				<table id="searchbox-table">
+					<tr>
+						<td>
+                                                    <h:inputText id="content" />
+						</td>
+						<td>
+                                                    <h:graphicImage id="submit" url="/resources/images/icon_search.jpg" />
+						</td>
+					</tr>
+				</table>
+                </form>
+            </div>
+        </div>
+        <div id="header">
+            <div id="menu">
+                <li>
+                    <div class="menuitem">
+                        <div class="menu-index-item"><a href="http://www.bupt.edu.cn/" target="blank">北邮官网</a></div>
+                        <div class="submenu"></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="menuitem">
+                        <div class="menu-index-item"><a href="http://jwxt.bupt.edu.cn/" target="blank">教务系统</a></div>
+                        <div class="submenu"></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="menuitem">
+                        <div class="menu-index-item"><a href="http://my.bupt.edu.cn/index.portal"
+                                target="blank">信息门户</a></div>
+                        <div class="submenu"></div>
+                    </div>
+                </li>
+            </div>
+        </div>
+    </div>
+    <div id="wrapper">
+        <div id="left-content">
+            <div class="time">
+                <p>共耗时0.05673秒</p>
+            </div>
+            <div class="results-number">
+                <p>为您找到相关结果4111
+                    个</p>
+            </div>
+            <div class="result">
+                <h3 class="result-title">
+                    <a target="_blank" href="#">
+                        这里是title
+                    </a>
+                </h3>
+                <p class="result-preview">
+                    这里是正文，关键词一般会用<em>红色</em>标注
+                </p>
+            </div>
+
+        </div>
+        <div id="select-page">
+            <a href="#"><span class="pc current-page">1</span></a><a href="#"><span class="pc">2</span></a><a
+                href="#"><span class="pc">3</span></a><a href="#"><span class="pc">4</span></a><a href="#"><span
+                    class="pc">5</span></a><a href="#"><span class="pc">6</span></a><a href="#"><span
+                    class="pc">7</span></a><a href="#"><span class="pc">8</span></a><a href="#"><span
+                    class="pc">9</span></a><a href="#"><span class="pc">10</span></a><a href="#"><span
+                    class="pc prompt">后一页</span></a> </div>
+    </div>
+    <script jsf:target="body" jsf:name="scripts/main.js"/>
+
+    <script jsf:target="body">
+        addLoadEvent(adjustHeaderPosition);
+        addLoadEvent(checkChinese);
+    </script>
+</body>
+
+</html>
