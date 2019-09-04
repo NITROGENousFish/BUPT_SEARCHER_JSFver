@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditUserTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditUserLabel_userId}" for="userId" />
+                    <h:inputText id="userId" value="#{userController.selected.userId}" title="#{bundle.EditUserTitle_userId}" required="true" requiredMessage="#{bundle.EditUserRequiredMessage_userId}"/>
+                    <h:outputLabel value="#{bundle.EditUserLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{userController.selected.name}" title="#{bundle.EditUserTitle_name}" required="true" requiredMessage="#{bundle.EditUserRequiredMessage_name}"/>
+                    <h:outputLabel value="#{bundle.EditUserLabel_passwd}" for="passwd" />
+                    <h:inputText id="passwd" value="#{userController.selected.passwd}" title="#{bundle.EditUserTitle_passwd}" required="true" requiredMessage="#{bundle.EditUserRequiredMessage_passwd}"/>
+                    <h:outputLabel value="#{bundle.EditUserLabel_sex}" for="sex" />
+                    <h:inputText id="sex" value="#{userController.selected.sex}" title="#{bundle.EditUserTitle_sex}" required="true" requiredMessage="#{bundle.EditUserRequiredMessage_sex}"/>
+                    <h:outputLabel value="#{bundle.EditUserLabel_userPostDate}" for="userPostDate" />
+                    <h:inputText id="userPostDate" value="#{userController.selected.userPostDate}" title="#{bundle.EditUserTitle_userPostDate}" required="true" requiredMessage="#{bundle.EditUserRequiredMessage_userPostDate}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditUserLabel_prefersettings}" for="prefersettings" />
+                    <h:selectOneMenu id="prefersettings" value="#{userController.selected.prefersettings}" title="#{bundle.EditUserTitle_prefersettings}" >
+                        <f:selectItems value="#{prefersettingsController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{userController.update}" value="#{bundle.EditUserSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditUserViewLink}"/>
+                <br />
+                <h:commandLink action="#{userController.prepareList}" value="#{bundle.EditUserShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditUserIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

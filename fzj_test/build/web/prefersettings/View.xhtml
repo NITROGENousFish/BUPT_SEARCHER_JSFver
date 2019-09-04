@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewPrefersettingsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewPrefersettingsLabel_userId}"/>
+                    <h:outputText value="#{prefersettingsController.selected.userId}" title="#{bundle.ViewPrefersettingsTitle_userId}"/>
+                    <h:outputText value="#{bundle.ViewPrefersettingsLabel_backgroundId}"/>
+                    <h:outputText value="#{prefersettingsController.selected.backgroundId}" title="#{bundle.ViewPrefersettingsTitle_backgroundId}"/>
+                    <h:outputText value="#{bundle.ViewPrefersettingsLabel_isUseJs}"/>
+                    <h:outputText value="#{prefersettingsController.selected.isUseJs}" title="#{bundle.ViewPrefersettingsTitle_isUseJs}"/>
+                    <h:outputText value="#{bundle.ViewPrefersettingsLabel_user}"/>
+                    <h:outputText value="#{prefersettingsController.selected.user}" title="#{bundle.ViewPrefersettingsTitle_user}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{prefersettingsController.destroyAndView}" value="#{bundle.ViewPrefersettingsDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewPrefersettingsEditLink}"/>
+                <br />
+                <h:commandLink action="#{prefersettingsController.prepareCreate}" value="#{bundle.ViewPrefersettingsCreateLink}" />
+                <br />
+                <h:commandLink action="#{prefersettingsController.prepareList}" value="#{bundle.ViewPrefersettingsShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewPrefersettingsIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
