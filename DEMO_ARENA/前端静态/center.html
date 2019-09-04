@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>用户设置</title>
+    <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="style/setting.css">
+</head>
+
+<body>
+    <div id="header" class="center">
+        <div id="menu" class="center">
+            <li>
+                <div class="menuitem">
+                    <div class="menu-index-item"><a href="http://www.bupt.edu.cn/" target="blank">北邮官网</a></div>
+                    <div class="submenu"></div>
+                </div>
+            </li>
+            <li>
+                <div class="menuitem">
+                    <div class="menu-index-item"><a href="http://jwxt.bupt.edu.cn/" target="blank">教务系统</a></div>
+                    <div class="submenu"></div>
+                </div>
+            </li>
+            <li>
+                <div class="menuitem">
+                    <div class="menu-index-item"><a href="http://my.bupt.edu.cn/index.portal" target="blank">信息门户</a>
+                    </div>
+                    <div class="submenu"></div>
+                </div>
+            </li>
+        </div>
+        <div id="setting">
+            <div class="dropdown" style="float:right;">
+                <button class="dropbtn">S<p>etting</p></button>
+                <div class="dropdown-content">
+                    <a href="#">个人中心</a>
+                    <a href="#">搜索设置</a>
+                    <a href="#">登出</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="settingbox-out">
+        <div id="settingbox-in">
+            <h2>用户设置</h2>
+            <form action="#">
+                <div class="container">
+                    <div class="item">
+                        <label><b>用户名</b></label>
+                        <input type="text" name="user_name">
+                    </div>
+                    <div class="item">
+                        <label><b>密码</b></label>
+                        <input type="text" name="pwd">
+                    </div>
+                    <div class="item">
+                        <label><b>邮箱</b></label>
+                        <input type="text" name="email">
+                    </div>
+                    <div class="item">
+                        <label><b>选择背景图片</b></label>
+                        <div class="dropdown">
+                            <button class="dropbtn">选择图片</button>
+                            <div class="dropdown-content">
+                                <div><input type="radio" name="background_pic" value="1" checked>背景1</div>
+                                <div><input type="radio" name="background_pic" value="2" checked>背景2</div>
+                                <div><input type="radio" name="background_pic" value="3" checked>背景3</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <label><b>是否使用背景动画</b></label>
+                        <div><input type="radio" name="js_setting" value="yes" checked>是</div>
+                        <div><input type="radio" name="js_setting" value="no" checked>否</div>
+                    </div>
+                </div>
+                <div>
+                    <button type="submit">保存</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
