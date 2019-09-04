@@ -2,7 +2,7 @@ import java.sql.*;
 
 public class MySQLConnector {
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    static final String DB_URL = "jdbc:mysql://localhost:3306/buptspider?serverTimezone=UTC&autoReconnect=true&useSSL=false";
+    static final String DB_URL = "jdbc:mysql://localhost:3306/buptsearcher?serverTimezone=UTC&autoReconnect=true&useSSL=false";
 
     static final String USER = "root";
     static final String PASS = "mysql";
@@ -16,11 +16,10 @@ public class MySQLConnector {
             Class.forName("com.mysql.jdbc.Driver");
             this.conn = DriverManager.getConnection(DB_URL,USER,PASS);
             this.stmt = this.conn.createStatement();
-            String veri_sql = "SHOW TABLES;";
 
             DatabaseMetaData meta = conn.getMetaData();
             String type [] = {"TABLE"};
-            ResultSet rs = meta.getTables(null, null, "websites_info", type);
+            ResultSet rs = meta.getTables(conn.getCatalog(), null, this.table_name, type);
             boolean flag = rs.next();
             if(!flag){
                 String init_sql = "CREATE TABLE `" + this.table_name + "` (\n" +

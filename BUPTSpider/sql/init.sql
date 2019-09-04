@@ -1,6 +1,6 @@
-CREATE DATABASE buptspider;
+CREATE DATABASE buptsearcher;
 
-use buptspider;
+use buptsearcher;
 
 CREATE TABLE `websites_info` (
     `id` INT UNSIGNED AUTO_INCREMENT,
