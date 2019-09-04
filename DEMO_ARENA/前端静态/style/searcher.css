@@ -68,7 +68,7 @@ em{
     position: absolute;
 }
 #menu{
-    margin-top: 10px;
+    margin: 10px 0 0 10px;
     width: 300px;
 }
 #menu li{
@@ -104,6 +104,13 @@ em{
     height: 100px;
     margin: 10px auto 10px 150px;
     border-bottom: 1px solid gray;
+}
+.result .displayed{
+    margin: 1px 0px 1px 0px;
+}
+.result .displayed a{
+    color: #006621;
+    font-style: normal;
 }
 .result-title{
     font-weight: normal;
@@ -183,4 +190,71 @@ em{
 }
 .current-page{
     background-color: rgb(207, 234, 243);
+}
+
+#setting{
+    display: inline-block;
+    padding: 0 0 0 15px;
+    position: relative;
+    vertical-align: middle;
+    height: 40px;
+    position: absolute;
+    top: 2px;
+    right: -50px;
+}
+
+.dropbtn {
+    background-color: #4285f4;
+    color: white;
+    font-size: 24px;
+    border: none;
+    border-radius: 16px;
+    padding: 0 8px 0 8px;
+    cursor: pointer;
+    height: 32px;
+    transition: width,font-size 0.4s;
+    -moz-transition: width,font-size 0.4s; /* Firefox 4 */
+    -webkit-transition: width,font-size 0.4s; /* Safari 和 Chrome */
+    -o-transition: width,font-size 0.4s; /* Opera */
+}
+
+.dropbtn p{
+    display: none;
+    transition: display 0.2s;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color:#4285f4;
+    font-size: 16px;
+}
+
+.dropdown:hover .dropbtn p{
+    display: inline;
 }

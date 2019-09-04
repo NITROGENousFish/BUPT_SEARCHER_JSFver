@@ -75,6 +75,31 @@
                         <div><input type="radio" name="js_setting" value="yes" checked>是</div>
                         <div><input type="radio" name="js_setting" value="no" checked>否</div>
                     </div>
+                    <div class="item">
+                        <label><b>设置导航网页</b></label>
+                        <div>
+                            导航页一
+                            <div class="navi_site">
+                                url:<input type="text" name="navi_site_url1">
+                                网站名:<input type="text" name="navi_site_name1">
+                            </div>
+                        </div>
+                        <div>
+                            导航页二
+                            <div class="navi_site">
+                                url:<input type="text" name="navi_site_url2">
+                                网站名:<input type="text" name="navi_site_name2">
+                            </div>
+                        </div>
+                        <div>
+                            导航页三
+                            <div class="navi_site">
+                                url:<input type="text" name="navi_site_url3">
+                                网站名:<input type="text" name="navi_site_name3">
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
                 <div>
                     <button type="submit">保存</button>
@@ -82,6 +107,10 @@
             </form>
         </div>
     </div>
+    <script src="scripts/main.js"></script>
+    <script>
+        addLoadEvent(adjustSettingPosition);
+    </script>
 </body>
 
 </html>

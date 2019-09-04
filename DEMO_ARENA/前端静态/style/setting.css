@@ -10,7 +10,7 @@ p,
 form {
     margin: 0;
     padding: 0;
-    font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;
+    font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, SimSun, sans-serif;
     font-size: 14px;
 }
 
@@ -48,14 +48,15 @@ button[type="submit"] {
     margin: 0 auto;
 }
 
-#settingbox-out{
+#settingbox-out {
     width: 600px;
     height: 100px;
     padding-left: 150px;
-    position: relative;;
+    position: relative;
+    ;
 }
 
-#settingbox-in h2{
+#settingbox-in h2 {
     border-bottom: 1px solid #dedede;
     color: #dd4b39;
     font-size: 20px;
@@ -64,16 +65,16 @@ button[type="submit"] {
     font-weight: normal;
 }
 
-#settingbox-in{
+#settingbox-in {
     margin-top: 100px;
 }
 
-.container .item{
+.container .item {
     padding: 30px 0 30px 0;
     border-bottom: 1px solid #dedede;
 }
 
-.container .item label{
+.container .item label {
     display: block;
 }
 
@@ -93,6 +94,13 @@ button[type="submit"] {
 }
 
 .item .dropdown:hover .dropbtn {
-    background-color:white;
+    background-color: white;
     font-size: 14px;
+}
+
+.navi_site {
+    display: inline-block;
+    left: 20px;
+    position: relative;
+    margin-top: 5px;
 }

@@ -8,8 +8,8 @@ CREATE TABLE `websites_info` (
     `title` VARCHAR(255),
     `content` TEXT,
     `published_time` DATE,
-    `click_times` int,
+    `click_times` INT,
     `crawled` TINYINT DEFAULT 0,
-
+    `being_crawled` TINYINT DEFAULT 0,
     PRIMARY KEY (`url`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;

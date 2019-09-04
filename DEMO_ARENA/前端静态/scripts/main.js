@@ -53,10 +53,10 @@ var checkChinese = function(){
 var adjustHeaderPosition = function(){
 	width = document.documentElement.clientWidth;
 	header = document.getElementById("header");
-	if(width <= 1100){
+	if(width <= 1200){
 		header.style.left=791+'px';
 	}
-	else header.style.left = (width - 310)+'px';
+	else header.style.left = (width - 410)+'px';
 	setTimeout(adjustHeaderPosition, 100);
 };
 
@@ -112,10 +112,24 @@ var slideDivX = function(div, dis, time){
 
 function adjustLoginPosition(){
 	width = document.documentElement.clientWidth;
-	header = document.getElementById("login");
-	if(width<=1100){
-		header.style.left=1000+'px';
-	}
-	else header.style.left = (width - 100)+'px';
-	setTimeout(adjustLoginPosition, 100);
+    header = document.getElementById("login");
+    if(header != null){
+        if(width<=1100){
+            header.style.left=1000+'px';
+        }
+        else header.style.left = (width - 100)+'px';
+        setTimeout(adjustLoginPosition, 100);
+    }
+}
+
+function adjustSettingPosition(){
+	width = document.documentElement.clientWidth;
+    header = document.getElementById("setting");
+    if(header != null){
+        if(width<=700){
+            header.style.left=600+'px';
+        }
+        else header.style.left = (width - 100)+'px';
+        setTimeout(adjustLoginPosition, 100);
+    }
 }
