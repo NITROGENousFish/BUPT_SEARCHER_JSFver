@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListCurrentsearchTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListCurrentsearchEmpty}" rendered="#{currentsearchController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{currentsearchController.items.rowCount > 0}">
+                    <h:outputText value="#{currentsearchController.pagination.pageFirstItem + 1}..#{currentsearchController.pagination.pageLastItem + 1}/#{currentsearchController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{currentsearchController.previous}" value="#{bundle.Previous} #{currentsearchController.pagination.pageSize}" rendered="#{currentsearchController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{currentsearchController.next}" value="#{bundle.Next} #{currentsearchController.pagination.pageSize}" rendered="#{currentsearchController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{currentsearchController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCurrentsearchTitle_currentsearchPK_orderSearch}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.currentsearchPK.orderSearch}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCurrentsearchTitle_description}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.description}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCurrentsearchTitle_searchlog}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.searchlog}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{currentsearchController.prepareView}" value="#{bundle.ListCurrentsearchViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{currentsearchController.prepareEdit}" value="#{bundle.ListCurrentsearchEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{currentsearchController.destroy}" value="#{bundle.ListCurrentsearchDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{currentsearchController.prepareCreate}" value="#{bundle.ListCurrentsearchCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListCurrentsearchIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
