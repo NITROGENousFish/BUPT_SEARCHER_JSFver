@@ -68,11 +68,7 @@ CREATE TABLE IF NOT EXISTS `buptsearcher`.`currentsearch` (
   `url` LONGTEXT NOT NULL,
   `content` LONGTEXT NOT NULL,
   PRIMARY KEY (`page_id`),
-  CONSTRAINT `log_id`
-    FOREIGN KEY (`page_id`)
-    REFERENCES `buptsearcher`.`searchlog` (`log_id`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
+   )
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_unicode_ci;
