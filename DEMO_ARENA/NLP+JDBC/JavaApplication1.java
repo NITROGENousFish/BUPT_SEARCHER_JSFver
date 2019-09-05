@@ -60,7 +60,12 @@ public class JavaApplication1 {
                 contentSQL.put("click_times", click_times);
 
             }
-            System.out.println(a.getresult(str,contentSQL).toString());//NLP+检索
+            Map availableURL = a.getresult(str,contentSQL);
+            if(availableURL != null){
+                sql = String.format("insert into currentsearch(page_id,title,url,content) values ('%s','%s','%s','%s')",availableURL.get("page_id"),availableURL.get("title"),availableURL.get("url"),availableURL.get("content"));
+                stmt.executeUpdate(sql);
+            }
+//            System.out.println(a.getresult(str,contentSQL).toString());//NLP+检索
         } catch (Exception e) {
             System.err.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             System.out.println(e);
