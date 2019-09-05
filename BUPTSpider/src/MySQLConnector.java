@@ -50,7 +50,7 @@ public class MySQLConnector {
             stmt.executeUpdate();
             return 0;
         }catch (SQLException se){
-            se.printStackTrace();
+            //se.printStackTrace();
             return 1;
         }catch (Exception e){
             e.printStackTrace();
