@@ -7,7 +7,7 @@
 	<title>BUPT 搜索引擎</title>
 </head>
 
-<body>
+<body style="background-image: url('https://ae01.alicdn.com/kf/Hcc4b4e2afabe408a83bd74dc9f237179A.jpg')"><!-- 此处设置背景图片url-->
 	<div id="header" class="center">
 		<div id="menu" class="center">
 			<li>
@@ -88,7 +88,7 @@
 		</div>
 	</div>
 	<script src="scripts/main.js"></script>
-	<script src="scripts/canvas-nest.js"></script>
+	<script src="scripts/canvas-nest.js"></script><!--删掉这个即可去除js动画-->
 	<script>
 		document.getElementsByTagName('canvas')[0].style.display = 'block';
 		addLoadEvent(adjustHeaderWidth);
@@ -97,6 +97,7 @@
 		addLoadEvent(switchCanvas);
 		addLoadEvent(adjustLoginPosition);
 		addLoadEvent(adjustSettingPosition);
+		addLoadEvent(beautifulForm);
 	</script>
 </body>
 

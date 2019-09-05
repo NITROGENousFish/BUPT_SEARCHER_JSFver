@@ -33,6 +33,19 @@ var eggs = function(){
 	}
 };
 
+var beautifulForm = function(){
+    if(!document.getElementById("content"))return false;
+    if(!document.getElementById("searchboxForm"))return false;
+    var content = document.getElementById("content");
+    var form = document.getElementById("searchboxForm");
+    content.onfocus = function(){
+        form.style.borderRadius = '2px';
+    }
+    content.onblur = function(){
+        form.style.borderRadius = '24px';
+    }
+}
+
 //检查输入是否为中文
 var checkChinese = function(){
     if(!document.getElementById("searchboxForm"))return false;
