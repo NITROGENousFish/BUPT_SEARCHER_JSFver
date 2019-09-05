@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+
+<head jsf:id="head">
+    <meta charset="utf-8"/>
+    <title>登录</title>
+    <link jsf:name="style/login.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body jsf:id="body">
+    <div id="loginbox-out" class="center">
+        <div id="loginbox-in" class="center">
+            <h2>登录</h2>
+
+            <h:form>
+                <div class="container">
+                    <label><b>邮箱</b></label>
+                    <h:inputText value = "#{login.email}" required="true" requiredMessage="请输入邮箱" />
+                    <label><b>密码</b></label>
+                    <h:inputSecret value = "#{login.passwd}" maxlength="13" size="17" required="true" requiredMessage="请输入邮箱"/>
+
+                     <h:commandButton id="submit-button" value="Submit" action="#{login.login()}"/> 
+                    <h:selectBooleanCheckbox value="Remember Me" id="chkRememberMe"> Remember </h:selectBooleanCheckbox>
+                </div>
+
+                <div class="container" style="background-color:#f1f1f1">
+                    <button type="button" class="register"> <a href="#">注册</a></button>
+                    <span class="psw"><a href="#">忘记密码？</a></span>
+
+                </div>
+            </h:form>
+        </div>
+    </div>
+
+</body>
+
+</html>

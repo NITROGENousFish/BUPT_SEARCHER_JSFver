@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewCurrentsearchTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewCurrentsearchLabel_currentsearchPK_orderSearch}"/>
+                    <h:outputText value="#{currentsearchController.selected.currentsearchPK.orderSearch}" title="#{bundle.ViewCurrentsearchTitle_currentsearchPK_orderSearch}"/>
+                    <h:outputText value="#{bundle.ViewCurrentsearchLabel_description}"/>
+                    <h:outputText value="#{currentsearchController.selected.description}" title="#{bundle.ViewCurrentsearchTitle_description}"/>
+                    <h:outputText value="#{bundle.ViewCurrentsearchLabel_searchlog}"/>
+                    <h:outputText value="#{currentsearchController.selected.searchlog}" title="#{bundle.ViewCurrentsearchTitle_searchlog}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{currentsearchController.destroyAndView}" value="#{bundle.ViewCurrentsearchDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewCurrentsearchEditLink}"/>
+                <br />
+                <h:commandLink action="#{currentsearchController.prepareCreate}" value="#{bundle.ViewCurrentsearchCreateLink}" />
+                <br />
+                <h:commandLink action="#{currentsearchController.prepareList}" value="#{bundle.ViewCurrentsearchShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewCurrentsearchIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
