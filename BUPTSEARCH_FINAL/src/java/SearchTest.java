@@ -8,6 +8,7 @@
  *
  * @author lizon
  */
+
 import com.sun.corba.se.impl.oa.toa.TOAImpl;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -26,18 +27,17 @@ import sun.security.timestamp.TimestampToken;
 @ManagedBean(name = "searchTest")
 @SessionScoped
 public class SearchTest implements Serializable {
-    // Hyper parmeter
+    // 超参数常量区
     private static final long serialVersionUID = 1L; 
-    private static final Integer MESSAGE_PER_PAGE = 6; //how many message per page to show
-    public static Integer CURRENT_PAGE = 1; //id of current page
-    public String searchContent;
-    public static Integer pages_num = 27; // total pages
-    public Double searchtime = new Double(0.012312);    //  search time 
+    private static final Integer MESSAGE_PER_PAGE = 6; //每一页显示数量
+    // 网站一些变量区
+    public static Integer CURRENT_PAGE = 1; //当前页数
+    public static Integer pages_num = 27; // 总消息数目
+    public Double searchtime = new Double(0.012312);    // 搜索时间
+    // 还没有过的老金变量区
     public String universalVariable;
-       
-    
-    
-    
+    public String searchContent;
+    // 网站一些变量区的getset方法
     public void setPagesNum(Integer pages_num) {
         this.pages_num = pages_num;
     }
@@ -90,7 +90,7 @@ public class SearchTest implements Serializable {
             ));
 
 
-
+    //获取消息体get方法
     public List<Message> getMessageList() {
         System.out.println((CURRENT_PAGE - 1) * MESSAGE_PER_PAGE + "    " + (CURRENT_PAGE) * (MESSAGE_PER_PAGE));
         if((CURRENT_PAGE) * (MESSAGE_PER_PAGE)<=pages_num){
@@ -100,7 +100,7 @@ public class SearchTest implements Serializable {
             return messageList.subList((CURRENT_PAGE - 1) * MESSAGE_PER_PAGE, pages_num);
         }
     }
-
+    //单体结构消息体类
     public static class Message {
 
         String title;
@@ -148,7 +148,9 @@ public class SearchTest implements Serializable {
         }
     }
 
+    //选择界面所存放的变量
     public ArrayList<Selectpagelistall> selectpage;
+    //选择界面的类，定义了循环内部的方法
     public class Selectpagelistall {
 
         String selectpagelist;
@@ -185,6 +187,7 @@ public class SearchTest implements Serializable {
             this.herftag = herftag;
         }
     }
+    //选择界面get函数，不需要修改
     public List<Selectpagelistall> getSelectPage(){
         selectpage = new ArrayList<Selectpagelistall>();
             int pages = pages_num/MESSAGE_PER_PAGE+1;
@@ -255,23 +258,20 @@ public class SearchTest implements Serializable {
     }
     
     
-    // url parameter pasting
+    // URL映射专区，不需要修改：start========================================================
     private int param = 1;
     private String searchwd;
-    
     public int getParam() {
         CURRENT_PAGE = param;
-        System.err.println("getParam   view action into here,param value is "+this.param);
+        System.err.println("Param  get   param value is "+this.param);
         return param;
     }
- 
     public void setParam(int param) {
-        System.err.println("setParam   view action into here,param value is "+this.param);
+        System.err.println("Param  set   param value is "+this.param);
         this.param = param;
     }
-
+ 
     public String getSearchwd(){
-        this.param = 1;
         System.err.println("searchwd  get "+this.searchwd);
         return searchwd;
     }
@@ -279,12 +279,12 @@ public class SearchTest implements Serializable {
         System.err.println("searchwd   set "+this.searchwd);
         this.searchwd = searchwd;
     }
+    //在这里导入数据！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！，实现相关参数赋值@金，写完了把注释删了嘤嘤嘤
     public void init(){
-        CURRENT_PAGE = param;
+        CURRENT_PAGE = param; 
         System.err.println("Init           Init           Init           Init           "+this.param);
-        
     }
-
+    // URL映射专区：end========================================================
    
 }
     
