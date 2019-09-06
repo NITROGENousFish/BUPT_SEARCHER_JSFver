@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:jsf="http://xmlns.jcp.org/jsf" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+<head jsf:id="head">
+    <meta charset="utf-8"/>
+    <title>搜索设置</title>
+    <link jsf:name="style/setting.css" rel="stylesheet" type="text/css" />
+    <link jsf:name="style/main.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body jsf:id="body" style="#{userSetting.backGroundPicUrl}">
+    <div id="header" class="center">
+        <div id="menu" class="center">
+            <li>
+                <div class="menuitem">
+                    <div class="menu-index-item"><a href="https://www.bupt.edu.cn/" target="blank">北邮官网</a></div>
+                    <div class="submenu"></div>
+                </div>
+            </li>
+            <li>
+                <div class="menuitem">
+                    <div class="menu-index-item"><a href="https://jwxt.bupt.edu.cn/" target="blank">教务系统</a></div>
+                    <div class="submenu"></div>
+                </div>
+            </li>
+            <li>
+                <div class="menuitem">
+                    <div class="menu-index-item"><a href="https://my.bupt.edu.cn/index.portal" target="blank">信息门户</a>
+                    </div>
+                    <div class="submenu"></div>
+                </div>
+            </li>
+        </div>
+        <div id="setting">
+            <div class="dropdown" style="float:right;">
+                <button class="dropbtn">S<p>etting</p></button>
+                <div class="dropdown-content">
+                    <a href="center.xhtml">个人中心</a>
+                    <a href="setting.xhtml">搜索设置</a>
+                    <a href="#">登出</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="settingbox-out" >
+        <div id="settingbox-in" style="padding: 20px; background: rgba(255,255,255,0.8); border-radius:25px; box-shadow: 10px 10px 5px #888888;">
+            <h2>搜索设置</h2>
+            <h:form>
+                <div class="container">
+                    <div class="item">
+                        <label><b>每页搜索结果数</b></label>
+                        <h:inputText id="displayed_number" value="#{searchTest.messagePerPage}" a:placeholder="#{searchTest.messagePerPage}" />
+                    </div>
+                    <div class="item">
+                        <label><b>搜索语言范围</b></label>
+                        <h:selectOneRadio value="#{userSetting.searchLanguage}" layout="pageDirection">
+                            <f:selectItem itemValue="chinese" itemLabel="仅中文"/>
+                            <f:selectItem itemValue="english" itemLabel="仅英文"/>
+                            <f:selectItem itemValue="all" itemLabel="全部"/>
+                        </h:selectOneRadio>
+                    </div>
+                    <div class="item">
+                        <label><b>结果打开方式</b></label>
+                        <h:selectOneRadio value="#{userSetting.searchWindowSetting}" layout="pageDirection">
+                            <f:selectItem itemValue="new" itemLabel="在新的浏览器窗口中打开所选的每条搜索结果" />
+                            <f:selectItem itemValue="old" itemLabel="在现有浏览器窗口中打开所选的每条搜索结果" />
+                        </h:selectOneRadio>
+                    </div>
+                </div>
+                <div>
+                    <h:commandButton action="index.xhtml" id="submit" class="submit" type="submit" value="保存" style="background-color: #4285f4;color: white; height: 27px; width: 60px; padding: 0px 8px; margin: 8px 0; border: 1px solid #3079ed; border-radius: 2px; cursor: pointer; font-size: 11px;"> </h:commandButton>
+                </div>
+            </h:form>
+        </div>
+    </div>
+    <script jsf:target="body" jsf:name="scripts/main.js"></script>
+    <script jsf:target="body">
+        addLoadEvent(adjustSettingPosition);
+    </script>
+</body>
+
+</html>

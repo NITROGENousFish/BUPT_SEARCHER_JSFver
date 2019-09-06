@@ -1,0 +1,112 @@
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+blockquote,
+p,
+form {
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;
+}
+
+input,
+select,
+option,
+textarea {
+    outline: none;
+}
+
+div {
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.center {
+    margin: 0 auto;
+}
+
+form {
+    border: 3px solid #f1f1f1;
+}
+
+input[type=text],
+input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius:20px;
+    box-sizing: border-box;
+}
+
+button, input[type="submit"] {
+    background-color: #4285f4;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover, input[type="submit"]:hover {
+    opacity: 0.8;
+}
+
+.register {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #4285f4;
+}
+
+.register a{
+    color: white;
+}
+
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+}
+
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+.container {
+    padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+@media screen and (max-width: 300px) {
+    span.psw {
+        display: block;
+    }
+
+    .cancelbtn {
+        width: 100%;
+    }
+}
+
+#loginbox-out {
+    width: 600px;
+    height: 100px;
+    margin-top: 100px;
+}
+
+#loginbox-in {
+    margin-top: 150px;
+}

@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:jsf="http://xmlns.jcp.org/jsf" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+<head jsf:id="head">
+    <meta charset="utf-8"/>
+    <title>用户设置</title>
+    <link jsf:name="style/setting.css" rel="stylesheet" type="text/css" />
+    <link jsf:name="style/main.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body jsf:id="body" style="#{userSetting.backGroundPicUrl}">
+    <div id="header" class="center">
+        <div id="menu" class="center">
+            <li>
+                <div class="menuitem">
+                    <div class="menu-index-item"><a href="https://www.bupt.edu.cn/" target="blank">北邮官网</a></div>
+                    <div class="submenu"></div>
+                </div>
+            </li>
+            <li>
+                <div class="menuitem">
+                    <div class="menu-index-item"><a href="https://jwxt.bupt.edu.cn/" target="blank">教务系统</a></div>
+                    <div class="submenu"></div>
+                </div>
+            </li>
+            <li>
+                <div class="menuitem">
+                    <div class="menu-index-item"><a href="https://my.bupt.edu.cn/index.portal" target="blank">信息门户</a>
+                    </div>
+                    <div class="submenu"></div>
+                </div>
+            </li>
+        </div>
+        <div id="setting">
+            <div class="dropdown" style="float:right;">
+                <button class="dropbtn">S<p>etting</p></button>
+                <div class="dropdown-content">
+                    <a href="center.xhtml">个人中心</a>
+                    <a href="setting.xhtml">搜索设置</a>
+                    <a href="#">登出</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="settingbox-out">
+        <div id="settingbox-in" style="padding: 20px; background: rgba(255,255,255,0.8); border-radius:25px; box-shadow: 10px 10px 5px #888888;">
+            <h2>用户设置</h2>
+            <h:form>
+                <div class="container">
+                    <div class="item">
+                        <label><b>用户名</b></label>
+                        <h:inputText id="user_name" value="#{userSetting.userName}" a:placeholder="#{userSetting.userName}" />
+                    </div>
+                    <div class="item">
+                        <label><b>密码</b></label>
+                        <h:inputText id="pwd" value="#{userSetting.userPasswd}" a:placeholder="#{userSetting.userPasswd}" />
+                    </div>
+                    <div class="item">
+                        <label><b>邮箱</b></label>
+                        <h:inputText id="email" value="#{userSetting.usereMail}" a:placeholder="#{userSetting.usereMail}" />
+                    </div>
+                    <div class="item">
+                        <label><b>选择背景图片</b></label>
+                        <div class="dropdown">
+                            <button class="dropbtn">选择图片</button>
+                            <div class="dropdown-content">
+                                    <h:selectOneRadio value="#{userSetting.backGroundPicNum}" layout="pageDirection">
+                                            <f:selectItem itemValue="1" itemLabel="背景1"/>
+                                            <f:selectItem itemValue="2" itemLabel="背景2"/>
+                                            <f:selectItem itemValue="3" itemLabel="背景3"/>
+                                    </h:selectOneRadio>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <label><b>设置导航网页</b></label>
+                        <div>
+                            导航页一
+                            <div class="navi_site">
+                                url:<h:inputText id="navi_site_url1" value="#{userSetting.herf1Disctiption}" a:placeholder="#{userSetting.herf1Disctiption}" />
+                                网站名:<h:inputText id="navi_site_name1" value="#{userSetting.herf1Url}" a:placeholder="#{userSetting.herf1Url}" />
+                            </div>
+                        </div>
+                        <div>
+                            导航页二
+                            <div class="navi_site">
+                                url:<h:inputText id="navi_site_url2" value="#{userSetting.herf2Disctiption}" a:placeholder="#{userSetting.herf2Disctiption}" />
+                                网站名:<h:inputText id="navi_site_name2" value="#{userSetting.herf2Url}" a:placeholder="#{userSetting.herf2Url}" />
+                            </div>
+                        </div>
+                        <div>
+                            导航页三
+                            <div class="navi_site">
+                                url:<h:inputText id="navi_site_url3" value="#{userSetting.herf3Disctiption}" a:placeholder="#{userSetting.herf3Disctiption}" />
+                                网站名:<h:inputText id="navi_site_name3" value="#{userSetting.herf3Url}" a:placeholder="#{userSetting.herf3Url}" />
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div>
+                    <h:commandButton action="index.xhtml" id="submit" class="submit" type="submit" value="保存" style="background-color: #4285f4;color: white; height: 27px; width: 60px; padding: 0px 8px; margin: 8px 0; border: 1px solid #3079ed; border-radius: 2px; cursor: pointer; font-size: 11px;"> </h:commandButton>
+                </div>
+            </h:form>
+        </div>
+    </div>
+    <script jsf:target="body" jsf:name="scripts/main.js"></script>
+    <script jsf:target="body">
+        addLoadEvent(adjustSettingPosition);
+    </script>
+</body>
+
+</html>
