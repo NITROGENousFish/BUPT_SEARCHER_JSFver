@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>搜索设置</title>
+    <link rel="stylesheet" href="style/setting.css">
+    <link rel="stylesheet" href="style/main.css">
+</head>
+
+<body>
+    <div id="header" class="center">
+        <div id="menu" class="center">
+            <li>
+                <div class="menuitem">
+                    <div class="menu-index-item"><a href="http://www.bupt.edu.cn/" target="blank">北邮官网</a></div>
+                    <div class="submenu"></div>
+                </div>
+            </li>
+            <li>
+                <div class="menuitem">
+                    <div class="menu-index-item"><a href="http://jwxt.bupt.edu.cn/" target="blank">教务系统</a></div>
+                    <div class="submenu"></div>
+                </div>
+            </li>
+            <li>
+                <div class="menuitem">
+                    <div class="menu-index-item"><a href="http://my.bupt.edu.cn/index.portal" target="blank">信息门户</a>
+                    </div>
+                    <div class="submenu"></div>
+                </div>
+            </li>
+        </div>
+        <div id="setting">
+            <div class="dropdown" style="float:right;">
+                <button class="dropbtn">S<p>etting</p></button>
+                <div class="dropdown-content">
+                    <a href="#">个人中心</a>
+                    <a href="#">搜索设置</a>
+                    <a href="#">登出</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="settingbox-out">
+        <div id="settingbox-in">
+            <h2>搜索设置</h2>
+            <form action="#">
+                <div class="container">
+                    <div class="item">
+                        <label><b>每页搜索结果数</b></label>
+                        <input type="text" name="displayed_number">
+                    </div>
+                    <div class="item">
+                        <label><b>搜索语言范围</b></label>
+                        <div><input type="radio" name="language" value="chinese" checked>仅中文</div>
+                        <div><input type="radio" name="language" value="english" checked>仅英文</div>
+                        <div><input type="radio" name="language" value="all" checked>全部</div>
+                    </div>
+                    <div class="item">
+                        <label><b>结果打开方式</b></label>
+                        <div><input type="radio" name="open_method" value="new" checked>在新的浏览器窗口中打开所选的每条搜索结果</div>
+                        <div><input type="radio" name="open_method" value="old" checked>在现有浏览器窗口中打开所选的每条搜索结果</div>
+                    </div>
+                </div>
+                <div>
+                    <button type="submit">保存</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="scripts/main.js"></script>
+    <script>
+        addLoadEvent(adjustSettingPosition);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,270 @@
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+blockquote,
+p,
+form {
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;
+}
+
+input,
+select,
+option,
+textarea {
+    outline: none;
+}
+
+div {
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.center {
+    margin: 0 auto;
+}
+
+#header {
+    border-bottom: 1px solid black;
+    height: 30px;
+}
+
+#menu {
+    margin-top: 5px;
+    width: 300px;
+}
+
+#menu li {
+    float: left;
+    list-style: none;
+    padding: 0 15px 0 15px;
+    border-right: 1px solid gray;
+}
+
+#login {
+    display: inline-block;
+    padding: 0 0 0 15px;
+    position: relative;
+    vertical-align: middle;
+    height: 40px;
+    position: absolute;
+    top: 2px;
+}
+
+#loginitem {
+    position: relative;
+    line-height: normal;
+    text-align: left;
+    height: 40px;
+}
+
+#loginitem a {
+    color: #fff;
+    border: 1px solid #4285f4;
+    font-weight: bold;
+    outline: none;
+    background: #4285f4;
+    line-height: 28px;
+    padding: 0 12px;
+    border-radius: 2px;
+    font-size: 13px;
+    display: block;
+    width: 28px;
+    height: 30px;
+}
+
+.menuitem a {
+    font-size: 15px;
+    font-weight: normal;
+    transition: font-weight, font-size 0.2s;
+    -moz-transition: font-weight, font-size 0.2s;
+    /* Firefox 4 */
+    -webkit-transition: font-weight, font-size 0.2s;
+    /* Safari 和 Chrome */
+    -o-transition: font-weight, font-size 0.2s;
+    /* Opera */
+}
+
+.menuitem a:hover {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#menu :last-child {
+    border-right: 0;
+}
+
+#logo {
+    position: relative;
+    top: 150px;
+    width: 250px;
+}
+
+#logo img {
+    width: 250px;
+}
+
+#searchbox-out {
+    width: 510px;
+    height: 35px;
+}
+
+#searchbox-in {
+    margin-top: 150px;
+}
+
+#searchboxForm {
+    border: 1px solid #dfe1e5;
+    border-radius: 24px;
+    display: flex;
+    padding: 0 20px 0 10px;
+    box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
+    background-color: white;
+    transition: border-radius 0.4s;
+    -moz-transition: border-radius 0.4s; /* Firefox 4 */
+    -webkit-transition: border-radius 0.4s; /* Safari 和 Chrome */
+    -o-transition: border-radius 0.4s; /* Opera */
+}
+
+#content {
+    width: 450px;
+    height: 35px;
+    border: 0px;
+    outline: none;
+    font-size: 18px;
+}
+
+#submit {
+    height: 35px;
+    margin-top: 4px;
+}
+
+#footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    border-top: 1px solid gray;
+    margin-bottom: 10px;
+}
+
+#footer-in {
+    width: 1230px;
+    margin: 10px auto 10px auto;
+}
+
+#footer-content li {
+    float: left;
+    list-style: none;
+    margin-right: 50px;
+}
+
+#contact {
+    cursor: pointer;
+}
+
+.menuitem .submenu {
+    display: none;
+}
+
+.menuitem:hover .submenu {
+    display: block;
+}
+
+.canvas-switch {
+    width: 40px;
+    height: 18px;
+    padding: 2px;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    background-color: #10b45a;
+    position: relative;
+}
+
+.canvas-switch .button {
+    width: 15px;
+    height: 15px;
+    left: 3px;
+    top: 3px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    background-color: #fff;
+    position: absolute;
+}
+
+#setting{
+    display: inline-block;
+    padding: 0 0 0 15px;
+    position: relative;
+    vertical-align: middle;
+    height: 40px;
+    position: absolute;
+    top: 2px;
+    right: 20px;
+}
+
+.dropbtn {
+    background-color: #4285f4;
+    color: white;
+    font-size: 24px;
+    border: none;
+    border-radius: 16px;
+    padding: 0 8px 0 8px;
+    cursor: pointer;
+    height: 32px;
+    transition: width,font-size 0.4s;
+    -moz-transition: width,font-size 0.4s; /* Firefox 4 */
+    -webkit-transition: width,font-size 0.4s; /* Safari 和 Chrome */
+    -o-transition: width,font-size 0.4s; /* Opera */
+}
+
+.dropbtn p{
+    display: none;
+    transition: display 0.2s;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color:#4285f4;
+    font-size: 16px;
+}
+
+.dropdown:hover .dropbtn p{
+    display: inline;
+}
