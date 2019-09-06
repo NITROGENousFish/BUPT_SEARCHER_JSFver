@@ -22,11 +22,30 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 import sun.security.timestamp.TimestampToken;
-
+//jhcuse---------------
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import org.ansj.domain.Result;
+import org.ansj.domain.Term;
+import org.ansj.splitWord.analysis.ToAnalysis;
+import SearchNLP
+//------------
 
 @ManagedBean(name = "searchTest")
 @SessionScoped
 public class SearchTest implements Serializable {
+    //数据库信息
+    private static final sqlUser = "root";
+    private static final sqlPw = "jhczxcvbnm";
+
     // 超参数常量区
     private static final long serialVersionUID = 1L; 
     public Integer MESSAGE_PER_PAGE = 6; //每一页显示数量
@@ -112,13 +131,11 @@ public class SearchTest implements Serializable {
         String title;
         String context;
         String url;
-        Integer clickTimes;
 
-        public Message(String title, String context, String url, Integer clickTimes) {
+        public Message(String title, String context, String url) {
             this.title = title;
             this.context = context;
             this.url = url;
-            this.clickTimes = clickTimes;
         }
 
         public String getTitle() {
@@ -143,14 +160,6 @@ public class SearchTest implements Serializable {
 
         public void setUrl(String url) {
             this.url = url;
-        }
-
-        public Integer getClickTimes() {
-            return clickTimes;
-        }
-
-        public void setClickTimes(Integer clickTimes) {
-            this.clickTimes = clickTimes;
         }
     }
 
@@ -289,6 +298,72 @@ public class SearchTest implements Serializable {
     public void init(){
         CURRENT_PAGE = param; 
         System.err.println("Init           Init           Init           Init           "+this.param);
+        //----------------------------------------------------
+        Result startNLP = ToAnalysis.parse("1");//无用语句,仅启动NLP
+        //----------------------------------------------------
+        someThing();//分词,匹配,并将结果写入数据库临时表
+        //按序取出结果
+        try {
+            Map<String,String> resultSearch = new HashMap<String,String>();
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/buptsearcher?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=CONVERT_TO_NULL",sqlUser,sqlPw);
+            String sql = "select * from currentsearch order by page_id desc"; 
+            //查询
+            Statement stmt2 =con.createStatement();
+            ResultSet rs = stmt2.executeQuery(sql);
+            while(rs.next()){
+                String title = rs.getString("title");
+                String url = rs.getString("url");
+                String content = rs.getString("content");
+                messageList.add(new Message(title,content,url));
+            }
+        } catch (Exception e) {
+            System.err.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            System.err.println(e);
+            System.err.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        }
+        
+
+    }
+    private void someThing(){
+        String str = this.searchContent;
+        SearchNLP snlp = SearchNLP();
+        Map<String,String> contentSQL= new HashMap<String,String>();
+        try {
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/buptsearcher?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=CONVERT_TO_NULL",sqlUser,sqlPw);
+            String sql = "select * from websites_info"; 
+            //查询
+            Statement stmt =con.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            while(rs.next()){
+                String url = rs.getString("url");
+                String title = rs.getString("title");
+                String content = rs.getString("content");
+                String click_times = rs.getString("click_times");
+
+                contentSQL.put("url", url);
+                contentSQL.put("title", title);
+                contentSQL.put("content", content);
+                contentSQL.put("click_times", click_times);
+                Map availableURL = snlp.getresult(str,contentSQL);
+                System.out.println(availableURL.toString());//----------------------------
+                if(availableURL != null){
+                    sql = String.format("insert into currentsearch(page_id,title,url,content) values ('%s','%s','%s','%s')",availableURL.get("page_id"),availableURL.get("title"),availableURL.get("url"),availableURL.get("content"));
+                    Statement stmt1 =con.createStatement();
+                    stmt1.executeUpdate(sql);    
+                }
+            }
+
+//            System.out.println(a.getresult(str,contentSQL).toString());//NLP+检索
+        } catch (Exception e) {
+            System.err.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            System.err.println(e);
+            System.err.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        }
+
+
+
+
+
     }
     // URL映射专区：end========================================================
    
