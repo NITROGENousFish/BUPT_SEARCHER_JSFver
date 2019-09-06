@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:jsf="http://xmlns.jcp.org/jsf" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+<head jsf:id="head">
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link jsf:name="style/searcher.css" rel="stylesheet" type="text/css" />
+    <!-- URL传参需要的标签 -->
+    <f:metadata>
+        <f:viewParam name="param" id="param" value="#{searchTest.param}" />
+        <f:viewParam name="searchwd" id="searchwd" value="#{searchTest.searchwd}" />
+        <f:viewAction action="#{searchTest.init}" />
+    </f:metadata>
+    <title>北邮 BUPT 搜索引擎</title>
+</head>
+
+<body jsf:id="body">
+    <div id="new-header">
+        <!-- 这里跳转到home -->
+        <a href="http://lastation.me/searcher" id="index">
+            <h:graphicImage id="submit1" url="/resources/images/logo.png" />
+        </a>
+
+        <div id="searchbox-out">
+            <div id="searchbox-in">
+                <h:form id="searchboxForm" target="_self">
+                    <table id="searchbox-table">
+                        <tr>
+                            <td>
+                                <h:inputText id="content" value="#{searchTest.searchwd}"
+                                    a:placeholder="#{searchTest.searchwd}" />
+                            </td>
+                            <td>
+                                <h:commandButton action="searcher?faces-redirect=true&amp;includeViewParams=true"
+                                    id="submit" class="submit" image="/resources/images/icon_search.jpg"
+                                    style="height:30px">
+                                </h:commandButton>
+                            </td>
+                        </tr>
+                    </table>
+                </h:form>
+            </div>
+        </div>
+        <div id="header">
+            <div id="menu">
+                <li>
+                    <div class="menuitem">
+                        <div class="menu-index-item"><a href="http://www.bupt.edu.cn/" target="blank">北邮官网</a></div>
+                        <div class="submenu"></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="menuitem">
+                        <div class="menu-index-item"><a href="http://jwxt.bupt.edu.cn/" target="blank">教务系统</a></div>
+                        <div class="submenu"></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="menuitem">
+                        <div class="menu-index-item"><a href="http://my.bupt.edu.cn/index.portal"
+                                target="blank">信息门户</a></div>
+                        <div class="submenu"></div>
+                    </div>
+                </li>
+            </div>
+            <!-- 未登陆时
+            <div id="login">
+                <div id="loginitem">
+                    <a href="#" target="_top">登录</a>
+                </div>
+            </div>
+            -->
+            <div id="setting">
+                <div class="dropdown" style="float:right;">
+                    <button class="dropbtn">S<p>etting</p></button>
+                    <div class="dropdown-content">
+                        <a href="#">个人中心</a>
+                        <a href="#">搜索设置</a>
+                        <a href="#">登出</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="wrapper">
+        <div id="left-content">
+            <div class="time">
+                <p>共耗时
+                    <h:outputText value="#{searchTest.searchTimeString}" />秒</p>
+            </div>
+            <div class="results-number">
+                <p>为您找到相关结果
+                    <h:outputText value="#{searchTest.pagesNumString}" />个</p>
+            </div>
+
+            <ui:repeat var="o" value="#{searchTest.messageList}">
+                <div class="result">
+                    <h3 class="result-title">
+                        <a href="#{o.url}">
+                            <h:outputText value="#{o.title}" escape="false" />
+                        </a>
+                    </h3>
+                    <div class="displayed">
+                        <a href="#{o.url}">
+                            <h:outputText value="#{o.url}" escape="false" />
+                        </a>
+                    </div>
+                    <p class="result-preview" escape="false ">
+                        <h:outputText value="#{o.context}" escape="false" />
+                    </p>
+                </div>
+            </ui:repeat>
+
+        </div>
+
+             <div id="select-page">
+                <ui:repeat var="temp" value="#{searchTest.selectPage}">
+                    <h:outputLink value="searcher.xhtml?param=#{temp.herfTag}&amp;searchwd=#{searchTest.searchwd}">
+                        <span class="#{temp.selectPageList}">#{temp.spanTag}</span>
+                    </h:outputLink>
+                </ui:repeat> 
+            </div>
+    </div>
+    <script jsf:target="body" jsf:name="scripts/main.js" />
+    <script jsf:target="body">
+        addLoadEvent(adjustHeaderPosition);
+        addLoadEvent(checkChinese);
+    </script>
+</body>
+
+</html>
