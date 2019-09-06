@@ -16,7 +16,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import javax.faces.bean.ApplicationScoped;
-
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
@@ -24,12 +23,19 @@ import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 import sun.security.timestamp.TimestampToken;
 
+
 @ManagedBean(name = "searchTest")
 @SessionScoped
 public class SearchTest implements Serializable {
     // 超参数常量区
     private static final long serialVersionUID = 1L; 
-    private static final Integer MESSAGE_PER_PAGE = 6; //每一页显示数量
+    public Integer MESSAGE_PER_PAGE = 6; //每一页显示数量
+    public void setMessagePerPage(Integer MESSAGE_PER_PAGE) {
+        this.MESSAGE_PER_PAGE = MESSAGE_PER_PAGE;
+    }
+    public Integer getMessagePerPage() {
+        return MESSAGE_PER_PAGE;
+    }
     // 网站一些变量区
     public static Integer CURRENT_PAGE = 1; //当前页数
     public static Integer pages_num = 27; // 总消息数目
