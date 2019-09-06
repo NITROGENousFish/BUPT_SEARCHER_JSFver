@@ -352,7 +352,7 @@ public class SearchTest implements Serializable {
                     stmt1.executeUpdate(sql);    
                 }
             }
-
+            con.close();
 //            System.out.println(a.getresult(str,contentSQL).toString());//NLP+检索
         } catch (Exception e) {
             System.err.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
